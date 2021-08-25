@@ -53,10 +53,7 @@ const config = {
       filename: 'assets/[name].css',
     }),
     new CleanWebpackPlugin(),
-    new DotenvWebpackPlugin({
-      path: './env',
-      safe: true,
-    }),
+    new DotenvWebpackPlugin(),
   ],
 };
 
