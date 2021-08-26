@@ -1,10 +1,11 @@
 import React, { useRef, useState } from 'react';
 import isValidURL from '../utils/isValidURL';
 import { extractImages } from '../utils/extractorAPI';
+import { ImageResponse } from '../utils/interfaces';
 import ImagesLayout from './ImagesLayout';
 
 const Extractor = (): JSX.Element => {
-  const [images, setImages] = useState<Array<string>>([]);
+  const [images, setImages] = useState<Array<ImageResponse>>([]);
   const [error, setError] = useState<{ error: boolean; message: string }>({
     error: false,
     message: '',
@@ -58,9 +59,9 @@ const Extractor = (): JSX.Element => {
             EXTRACT
           </button>
         </div>
-        <div className="md:w-3/4 mx-auto flex mt-2">
+        {/* <div className="md:w-3/4 mx-auto flex mt-2">
           <button className="mx-1 text-gray-400 underline">Settings</button>
-        </div>
+        </div> */}
       </div>
       <ImagesLayout images={images} />
     </>

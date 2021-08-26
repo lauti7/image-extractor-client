@@ -1,4 +1,11 @@
+export interface ImageResponse {
+  name: string;
+  fileName: string;
+  url: string;
+  type: string;
+}
+
 export interface ExtractResponse {
-  images: string[] | null;
+  images: ImageResponse[] | null;
   error?: boolean;
 }
