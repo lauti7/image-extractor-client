@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { ImageResponse } from '../utils/interfaces';
 
-const Image = ({ image }: { image: string }): JSX.Element => (
-  <div className="md:w-3/4 mx-auto bg-gray-800 rounded-md p-2">
-    <div className="w-full">
-      <img src={image} />
+const Image = ({ image }: { image: ImageResponse }): JSX.Element => {
+  const imgRef = useRef<HTMLImageElement>(null);
+
+  return (
+    <div className="flex flex-col h-full bg-gray-800 rounded-md p-2">
+      <div className="w-full h-3/4 rounded-md bg-white bg-opacity-10 flex flex-col justify-center items-center">
+        <img
+          ref={imgRef}
+          src={image.url}
+          className="object-scale-down h-3/4 w-full"
+        />
+      </div>
+      <div className="flex justify-between items-center mt-2">
+        <p className="px-1">
+          {`${imgRef?.current?.naturalWidth} x ${imgRef?.current?.naturalHeight}`}
+        </p>
+        <p className="p-1 rounded bg-indigo-500 text-indigo-800">
+          {image.type}
+        </p>
+      </div>
+      <p className="text-sm text-gray-400">
+        {image.name.length >= 34 ? `${image.name.slice(1, 20)}...` : image.name}
+      </p>
     </div>
-  </div>
-);
+  );
+};
 
 export default Image;
