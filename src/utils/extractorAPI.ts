@@ -2,6 +2,7 @@ import { ExtractResponse } from './interfaces';
 
 const API_URL = process.env.API_URL;
 const extractURL = `${API_URL}/extract/`;
+const downloadSingleImageURL = `${API_URL}/download/single?weburl=`;
 
 export const extractImages = (url: string): Promise<ExtractResponse> => {
   return fetch(extractURL, {
@@ -23,6 +24,14 @@ export const extractImages = (url: string): Promise<ExtractResponse> => {
         throw new Error('Server error');
       }
     })
+    .catch((error) => {
+      throw new Error(error);
+    });
+};
+
+export const downloadSingleImage = (imageURL: string): Promise<any> => {
+  return fetch(`${downloadSingleImageURL}${imageURL}`)
+    .then((response) => response.blob())
     .catch((error) => {
       throw new Error(error);
     });
