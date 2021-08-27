@@ -38,5 +38,6 @@ ENV=development
 ## TODOs:
 
 - [ ] Add tests.
-- [ ] Allow users to download images (single and bulk).
+- [x] Allow users to download an image.
+- [ ] Allow users to download images (in bulk, zip file).
 - [ ] Add settings button to set up web behaviour.
