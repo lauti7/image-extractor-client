@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const DotenvWebpackPlugin = require('dotenv-webpack');
+const openBrowser = require('react-dev-utils/openBrowser');
 
 const config = {
   entry: ['react-hot-loader/patch', './src/index.tsx'],
@@ -19,6 +20,11 @@ const config = {
   module: {
     rules: [
       {
+        test: /\.ts(x)?$/,
+        loader: 'ts-loader',
+        exclude: /node_modules/,
+      },
+      {
         test: /\.css$/,
         use: [
           MiniCssExtractPlugin.loader,
@@ -32,9 +38,8 @@ const config = {
         ],
       },
       {
-        test: /\.ts(x)?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
+        test: /\.(svg)$/i,
+        type: 'asset/resource',
       },
     ],
   },
