@@ -7,5 +7,6 @@ export interface ImageResponse {
 
 export interface ExtractResponse {
   images: ImageResponse[] | null;
+  message: string;
   error?: boolean;
 }

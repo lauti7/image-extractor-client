@@ -18,6 +18,7 @@ export const extractImages = (url: string): Promise<ExtractResponse> => {
       if (!json.error) {
         return {
           images: json.images,
+          message: json.message,
           error: false,
         };
       } else {
@@ -25,7 +26,7 @@ export const extractImages = (url: string): Promise<ExtractResponse> => {
       }
     })
     .catch((error) => {
-      throw new Error(error);
+      throw new Error('Server error');
     });
 };
 
