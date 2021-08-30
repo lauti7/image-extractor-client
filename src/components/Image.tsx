@@ -39,7 +39,7 @@ const Image = ({ image }: { image: ImageResponse }): JSX.Element => {
   };
 
   return (
-    <div className="flex flex-col h-full bg-gray-800 rounded-md p-2">
+    <div className="flex flex-col h-full bg-gray-800 rounded-md p-2 w-3/4 mx-auto md:w-full md:mx-none">
       <div
         className={`w-full h-3/4 rounded-md bg-white ${
           inverted ? '' : 'bg-opacity-10'
@@ -48,7 +48,7 @@ const Image = ({ image }: { image: ImageResponse }): JSX.Element => {
         <img
           onLoad={handleImageLoad}
           src={image.url}
-          className="object-scale-down h-3/4 w-full"
+          className="object-scale-down md:h-3/4 md:w-full"
         />
       </div>
       <div className="flex justify-between items-center mt-2">
