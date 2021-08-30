@@ -10,6 +10,7 @@ const Extractor = (): JSX.Element => {
     error: false,
     message: '',
   });
+  const [serverMessage, setServerMessage] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
 
   const webUrlInputRef = useRef<HTMLInputElement>(null);
@@ -28,6 +29,11 @@ const Extractor = (): JSX.Element => {
             if (response.images) {
               setImages(response.images);
             }
+
+            if (response.message) {
+              setServerMessage(response.message);
+            }
+
             setLoading(false);
           })
           .catch((err) => {
@@ -49,19 +55,19 @@ const Extractor = (): JSX.Element => {
   return (
     <>
       <div className="md:w-1/2 md:mx-auto bg-gray-800 rounded-md pb-2 px-1 mt-4">
-        <h2 className="text-lg text-center">
+        <h2 className="md:text-lg text-center">
           Get images from any public website!
         </h2>
         <div className="md:w-3/4 mx-auto flex">
           <input
             type="text"
-            className="text-gray-800 w-full rounded-md p-2 mx-1 focus:ring-2 focus:ring-indigo-500"
+            className="text-sm md:text-base text-gray-800 w-full rounded-md p-2 mx-1 focus:ring-2 focus:ring-indigo-500"
             placeholder="Enter URL"
             name="weburl"
             ref={webUrlInputRef}
           />
           <button
-            className="bg-indigo-500 rounded-md mx-1 p-2 w-1/6"
+            className="text-sm md:text-base bg-indigo-500 rounded-md mx-1 p-2 w-1/6"
             onClick={handleExtract}
           >
             {loading ? (
@@ -97,11 +103,8 @@ const Extractor = (): JSX.Element => {
             {error.message}
           </p>
         )}
-        {/* <div className="md:w-3/4 mx-auto flex mt-2">
-          <button className="mx-1 text-gray-400 underline">Settings</button>
-        </div> */}
       </div>
-      <ImagesLayout images={images} />
+      <ImagesLayout images={images} serverMessage={serverMessage} />
     </>
   );
 };
