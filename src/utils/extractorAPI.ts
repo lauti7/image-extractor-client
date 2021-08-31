@@ -1,7 +1,8 @@
 import axios from 'axios';
 import { ExtractResponse } from './interfaces';
 
-const API_URL = process.env.API_URL;
+const API_URL =
+  process.env.API_URL || 'https://image-extractor-api.herokuapp.com/api';
 const extractURL = `${API_URL}/extract/`;
 const downloadSingleImageURL = `${API_URL}/download/single?weburl=`;
 
