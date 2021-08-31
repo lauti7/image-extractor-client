@@ -18,5 +18,8 @@ deploy:
   skip_cleanup: true
   github_token: $GITHUB_TOKEN
   keep_history: true
+  local-dir: dist/
+  target-branch: gh-pages
+  commit_message: 'Deployment'
   on:
     branch: main
