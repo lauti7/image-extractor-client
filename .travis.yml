@@ -11,7 +11,7 @@ branches:
 
 script:
   - yarn test
-  - yarn build
+  - yarn build:prod
 
 deploy:
   provider: pages
