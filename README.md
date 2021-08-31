@@ -2,6 +2,8 @@
 
 Browser Client for [Image Extractor - API](https://github.com/lauti7/image-extractor-api)
 
+Client is online [here](https://lauti7.github.io/image-extractor-client/)
+
 Enter a URL of any public website, and you will get all the images that are beign used and you can download them.
 Only works with server side render for now.
 
@@ -37,7 +39,7 @@ ENV=development
 
 ## TODOs:
 
-- [ ] Add tests.
+- [x] Add tests.
 - [x] Allow users to download an image.
 - [ ] Allow users to download images (in bulk, zip file).
 - [ ] Add settings button to set up web behaviour.
