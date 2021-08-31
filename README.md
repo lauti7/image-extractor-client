@@ -1,8 +1,8 @@
-# Image Extractor - Client
+# Image Extractor - Client [![Build Status](https://app.travis-ci.com/lauti7/image-extractor-client.svg?branch=main)](https://app.travis-ci.com/lauti7/image-extractor-client)
 
 Browser Client for [Image Extractor - API](https://github.com/lauti7/image-extractor-api)
 
-Client is online [here](https://lauti7.github.io/image-extractor-client/)
+Client is online [here](https://lauti7.github.io/image-extractor-client/) and its API is online [here](https://image-extractor-api.herokuapp.com/api/status)
 
 Enter a URL of any public website, and you will get all the images that are beign used and you can download them.
 Only works with server side render for now.
