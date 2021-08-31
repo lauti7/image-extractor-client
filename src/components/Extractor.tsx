@@ -36,11 +36,16 @@ const Extractor = (): JSX.Element => {
 
             setLoading(false);
           })
-          .catch((err) => {
-            setError({
-              error: true,
-              message: err.message,
-            });
+          .catch((responseError) => {
+            // to check if it is a backend error or frontend error
+            if (responseError.message && responseError.images) {
+              setServerMessage(responseError.message);
+            } else {
+              setError({
+                error: true,
+                message: responseError.message,
+              });
+            }
             setLoading(false);
           });
       } else {
@@ -71,8 +76,12 @@ const Extractor = (): JSX.Element => {
             onClick={handleExtract}
           >
             {loading ? (
-              <span className="flex justify-center">
+              <span
+                data-testid="loader-container"
+                className="flex justify-center"
+              >
                 <svg
+                  data-testid="loader"
                   className="animate-spin mr-1 h-5 w-5 text-white"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -99,7 +108,10 @@ const Extractor = (): JSX.Element => {
           </button>
         </div>
         {error.error && (
-          <p className="text-center text-red-400 font-bold fade-in">
+          <p
+            data-testid="error-message"
+            className="text-center text-red-400 font-bold fade-in"
+          >
             {error.message}
           </p>
         )}

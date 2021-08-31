@@ -3,7 +3,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const DotenvWebpackPlugin = require('dotenv-webpack');
-const openBrowser = require('react-dev-utils/openBrowser');
 
 const config = {
   entry: ['react-hot-loader/patch', './src/index.tsx'],

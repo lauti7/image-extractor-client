@@ -1,0 +1,25 @@
+language: 'node_js'
+
+node_js: '14'
+
+git:
+  depth: 3
+
+branches:
+  only:
+    - main
+
+script:
+  - yarn test
+  - yarn build:prod
+
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  keep_history: true
+  local-dir: dist/
+  target-branch: gh-pages
+  commit_message: 'Deployment'
+  on:
+    branch: main
