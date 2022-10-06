@@ -9,7 +9,7 @@ Only works with server side render for now.
 
 ## Built with:
 
-React JS, TypeScript, and TailwindCSS.
+React JS
 
 ## Instalation
 
